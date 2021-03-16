@@ -1,0 +1,51 @@
+MSGBOX - a Message box utility for batch files
+Copyright 2000-2005 by Douglas Good
+Outside The Box Software
+http://www.otbsw.com
+This program is copyrighted freeware and may not be sold without express permission of the author.
+
+This program allows you to display text in a messagebox from a batch file.
+You can choose the type of icon to display, as well as your message text
+and the messagebox title.  You can even have the user answer a question,
+and use the result of their answer in your batch file.
+
+For more specific information, issue the command MSGBOX /?.
+
+This is a 32 bit console mode program, and it will only run from a Windows
+9x/NT/XP command prompt.  It will not work in pure DOS mode.
+
+Use at your own risk, I assume no responsibility for this program, or any
+damages caused by your use, misuse, or failure to use it.
+
+Contact me with any problems, suggestions, etc at:
+otbsoft@comcast.net
+dgood@psea.org
+
+--Doug Good
+
+REVISION HISTORY
+
+version 2.1  - December 13th, 2003
+	- Added a timer so that you can display a message for a certain amount of time
+	  and then remove it from the screen without user's intervention.
+	  This was made to allow completely automated scripts and batch files.
+	  If you omit the amount of time, there is no timeout whatsoever.
+      Thanks to Pierre-Jean Douillard for taking the time to code this much requested feature!
+
+Version 2.0  - May 20, 2002
+	- Added the ability to have the message displayed from a text file,
+          rather than as input from the command line. If the message parameter
+          starts with "@" and is followed by a valid filename (i.e. @C:\README.TXT)
+          the file will be read and used as the message.
+        - Made the Title text optional.  If nothing is specified on the command line,
+          then the title text will be blank. NOTE: you will need to specify the title
+          text as " " (a space in quotes) if you want to leave it blank and still use
+          the Icon and Button parameters, like so:  Msgbox "Your message here" " " 1 3
+ 	- KNOWN ISSUE: Due to the limitation of the Windows Messagebox function, if you specify
+          a message in a text file that is too long, the message box will run off the bottom of
+	  the screen, eliminating the buttons from view.  Press ENTER or SPACE to close the message
+          box in this case.  Be sure to use short text files in message boxes, and consider that screen
+          resolution is a major factor in just how many lines can be displayed properly. (ie 640x480 will
+	  show only about half the lines that 1024x768 will allow)
+
+Version 1.0 - Initial Release
