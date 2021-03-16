@@ -1,0 +1,67 @@
+Wprompt - Batch Tool Ver. 2.2 (c) 2003-2009, Horst Schaeffer
+------------------------------------------------------------
+
+Wprompt displays a prompt box with up to 3 standard buttons, and returns 
+an Errorlevel value to check the selected button in batch files. 
+The prompt box remains "on top" in case the user clicks into another window. 
+The box will be displayed in the middle of the console window, however, 
+if the console is minimized, the box will show in the mniddle of the desktop. 
+
+Syntax: Wprompt "Title" "Text" Buttons [Default[:TimeOut]] [Icon]
+
+*  Title (in double quote marks) will show in the title bar of the window.
+
+*  Text (in double quote marks) is the message for the user
+   A line feed can be inserted with the caret symbol (^).
+
+*  Buttons are specified by the following keywords (case ignored):
+        Ok                (as Pause repacement)
+        OkCancel                 
+        YesNo
+        YesNoCancel
+
+*  Default is the number of the default button 1..3 
+   If omitted or invalid, the default button is 1.
+   Optional TimeOut (seconds), separated by a colon, e.g.: 2:10
+   The time-out feature requires a non-empty title. 
+   
+*  Icon (optional, case ignored) with associated sound:
+        i       Info 
+        !       Exclamation
+        ?       Question
+        x       Critical Error
+
+Parameters must be separated by space(s), no commas!
+
+The Exit Code (Errorlevel) is 1..3 according to the selected button number. 
+On timeout the preset default button number is returned. 
+
+Note that in batch files "If Errorlevel 2" means: 
+"If the Exit Code is equal to or greater than 2". 
+
+Example: 
+        Wprompt "Error" "Continue Search?" YesNo 2 ? 
+        if not errorlevel 2 goto Continue
+        echo You have cancelled the search
+        goto END 
+
+Syntax errors will produce a syntax message box, and return Exit Code 255.
+Once you tested the command sucessfully, this error will not occur,
+so you need not check it in your batch file.
+
+History:
+    ver. 2.2  2009/01/04  prompt box centered in console window
+    ver. 2.1  2008/02/26  bugfix: YesNo + timeout did not work
+    ver. 2.0  2008/02/02  new timeout method; XP Themes support
+    ver. 1.2, 2004/07/15  new compiler version; exe size reduced
+
+Disclaimer
+
+This program is freeware (c) Horst Schaeffer. No warranty, no liability of any kind.
+PureBasic Source: http://home.mnet-online.de/horst.muc/source/wprompt22.zip
+
+Contact:  horst.schaeffer@gmx.net
+Homepage: http://home.mnet-online.de/horst.muc/
+
+04 Jan 2009
+
