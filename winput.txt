@@ -1,0 +1,83 @@
+Winput Ver. 1.21 (c) 2007-2008, Horst Schaeffer
+-----------------------------------------------
+
+Winput offers an input window to get a user's input string for batch processing.
+Winput supports multiline prompt text and automatic window sizing. 
+
+Syntax:  
+    Winput OutputString PromptString [InitialString] [Options]  [ > File ]
+
+The OutputString (enclosed in double quote marks) must include the token $input, which will be replaced by the actual input string. To catch the input, the output must be redirected to a file.
+
+Example:
+    Winput "set name=$input" "Please enter your name" /upper > temp.bat 
+    if not errorlevel 1 call temp.bat
+
+This will send a SET statement to the file temp.bat (or .cmd), and after you execute this BAT file, you will have the input string in the environmental variable %name%.
+
+You can produce and execute any other command this way, or you can simply write the input string to a file. 
+
+Arguments:
+    OutputString    must include the token "$input"; string will be sent to STDOUT 
+    PromptString    text message above input field; line feeds by caret character ("^") 
+    InitialString   for the input field (optional) 
+
+Options:
+    /upper     case
+    /lower     case
+    /num       only numbers (0..9) allowed 
+    /pass      input will not be visible (that's all!)
+    /timeout:n timeout after n seconds, returning the initial string
+               (the colon is mandatory; no space!)
+               Note: the timer will be cancelled on any input or window resizing.
+    /OEM       the output will be transformed to OEM (DOS) characters 
+               Note that the command line is assumed OEM, if extended chars are used;
+               pls. use appropriate editor.
+
+Keyboard:   
+    Enter or Escape accepted
+
+Errorlevel:
+      0: OK button was clicked (though the string may be empty) 
+      1: Cancel or window closed without action 
+    255: Syntax error (message box) 
+
+Notes: 
+------
+The string parameters must be enclosed in double quote marks. 
+If you need double quote marks inside the PromptString or OutputString, 
+use two single quote marks (''), which will be replaced. 
+
+Case ignored for the options and the $input token. 
+All parameters and options must be separated by blank space (no commas!).
+
+The output string comes without terminating CR+LF, however, you can use the
+caret character (^) to append or insert CRLF. 
+
+Another example:
+----------------
+    Winput "md ''$input''" "New directory name:" /oem > temp.bat 
+    if not errorlevel 1 call temp.bat
+
+History: 
+--------
+02 Apr 2008   ver 1.21: timeout option, caret supported in OutputString
+09 Feb 2008   ver 1.2: window vertically adjusted to console window
+14 Jul 2007   ver 1.11: internal (command handling)
+13 May 2007   ver 1.1: multi line prompt text, automatic window sizing; 
+              marked initial input; 
+              quote marks replacement also for PromptString; window stays on top
+04 Jan 2007   ver 1.0
+
+Disclaimer
+----------
+This program is freeware (c) Horst Schaeffer. No warranty, no liability of any kind.
+PureBasic Source: http://home.mnet-online.de/horst.muc/source/winput121.zip
+
+Contact:  horst.schaeffer@gmx.net
+Homepage: http://home.mnet-online.de/horst.muc/
+
+02 Apr 2008
+
+
+ 
