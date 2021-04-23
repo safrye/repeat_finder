@@ -19,29 +19,29 @@ March 2020, S.A. Frye
 
 Original program information taken form the Perl script:
 
-## Program Info:
-#
-# Name: repeat_finder
-#
-# Purpose:
-#   Searches for DNA repeats in a sequence. It searches for every
-#   permutation of an n-mer, and reports the number of hits.
-#
-# Author: John Nash
-#
-# Copyright (c) National Research Council of Canada, 2002,
-#   all rights reserved.
-#
-# Licence: This script may be used freely as long as no fee is charged
-#   for use, and as long as the author/copyright attributions
-#   are not removed.
-#
-# History:
-#   4-12 July 2002: Alpha versions.
-#
-#
-# Thanks: To Ed Taboada for suggesting hashing the repeats
-#
-# To-do:  Put ranges in for command line switches
-##
+# Program Info:
+
+ Name: repeat_finder
+
+ Purpose:
+   Searches for DNA repeats in a sequence. It searches for every
+   permutation of an n-mer, and reports the number of hits.
+
+ Author: John Nash
+
+ Copyright (c) National Research Council of Canada, 2002,
+   all rights reserved.
+
+ Licence: This script may be used freely as long as no fee is charged
+   for use, and as long as the author/copyright attributions
+   are not removed.
+
+ History:
+   4-12 July 2002: Alpha versions.
+
+
+ Thanks: To Ed Taboada for suggesting hashing the repeats
+
+ To-do:  Put ranges in for command line switches
+
 
